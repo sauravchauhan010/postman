@@ -1,11 +1,38 @@
-<div id="response"></div>
-<script>
-fetch('https://postman-echo.com/get?name=John&city=London')
-  .then(res => res.json())
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>API Response Display</title>
+  <style>
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 600px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>API Response:</h2>
+  <pre id="apiResponse">Loading...</pre>
+
+  <script>
+    fetch('https://postman-echo.com/get?name=John&city=London')
+  .then(response => response.json())  // Convert response to JSON
   .then(data => {
-    document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+    // Select the container element
+    const responseContainer = document.getElementById('apiResponse');
+
+    // Format JSON nicely and display it inside the container
+    responseContainer.textContent = JSON.stringify(data, null, 2);
   })
-  .catch(err => {
-    console.error('Error:', err);
+  .catch(error => {
+    // Show error if something goes wrong
+    document.getElementById('apiResponse').textContent = 'Error fetching data.';
+    console.error('Fetch error:', error);
   });
-</script>
+
+  </script>
+</body>
+</html>
