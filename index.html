@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple API Call Example</title>
+</head>
+<body>
+  <h1>Postman Echo API Demo</h1>
+  
+  <button id="fetchBtn">Get Data</button>
+  
+  <pre id="result"></pre>
+
+  <script>
+    // This function will be called when you click the button
+    document.getElementById('fetchBtn').addEventListener('click', () => {
+      // Make a GET request to the Postman Echo API with query parameters
+      fetch('https://postman-echo.com/get?name=John&city=London')
+        .then(response => response.json())  // Parse response as JSON
+        .then(data => {
+          // Show the response JSON pretty formatted in the <pre> tag
+          document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          // Show error if something goes wrong
+          document.getElementById('result').textContent = 'Error: ' + error;
+        });
+    });
+  </script>
+</body>
+</html>
