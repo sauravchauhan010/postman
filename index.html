@@ -14,7 +14,7 @@
     // This function will be called when you click the button
     document.getElementById('fetchBtn').addEventListener('click', () => {
       // Make a GET request to the Postman Echo API with query parameters
-      fetch('https://postman-echo.com/get?name=John&city=London')
+      fetch('https://cors-anywhere.herokuapp.com/https://postman-echo.com/get?name=John&city=London')
         .then(response => response.json())  // Parse response as JSON
         .then(data => {
           // Show the response JSON pretty formatted in the <pre> tag
@@ -28,3 +28,4 @@
   </script>
 </body>
 </html>
+
