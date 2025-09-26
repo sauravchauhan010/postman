@@ -1,0 +1,11 @@
+<div id="response"></div>
+<script>
+fetch('https://postman-echo.com/get?name=John&city=London')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+  })
+  .catch(err => {
+    console.error('Error:', err);
+  });
+</script>
