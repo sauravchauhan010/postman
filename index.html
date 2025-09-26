@@ -18,7 +18,7 @@
   <pre id="apiResponse">Loading...</pre>
 
   <script>
-    fetch('https://postman-echo.com/get?name=John&city=London')
+    fetch('https://cors-anywhere.herokuapp.com/https://postman-echo.com/get?name=John&city=London')
   .then(response => response.json())  // Convert response to JSON
   .then(data => {
     // Select the container element
